@@ -1,0 +1,7 @@
+{
+  "name": "almacenamiento-local",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
