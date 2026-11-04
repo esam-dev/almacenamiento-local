@@ -1,128 +1,83 @@
 :host {
   --page-padding: 20px;
 }
-
 ion-toolbar {
-  --background: #ffffff;
-  --color: #111111;
+  --background: #fff;
+  --color: #111;
   --min-height: 64px;
   padding: 0 8px;
 }
-
-.page-heading h1,
-.records-list ion-label h2,
-.empty-state h2 {
-  color: #111111;
-  font-weight: 800;
-}
-
 ion-title {
-  color: #111111;
+  color: #111;
   font-size: 1.25rem;
   font-weight: 400;
-  letter-spacing: normal;
 }
-
 ion-content {
   --background: #f7f9fc;
 }
-
 .page-shell {
   margin: 0 auto;
   max-width: 720px;
   padding: 16px var(--page-padding) 28px;
 }
-
 .page-heading,
-.state,
-.bottom-navigation {
+.bottom-navigation,
+.nav-content {
   align-items: center;
   display: flex;
 }
-
 .page-heading {
   justify-content: space-between;
 }
-
+.page-heading h1,
+.records-list ion-label h2,
+.empty-state h2 {
+  color: #111;
+  font-weight: 800;
+}
 .page-heading h1 {
   font-size: 1.35rem;
-  letter-spacing: -0.035em;
   margin: 4px 0;
 }
-
 ion-note {
   color: #667085;
   font-size: 0.67rem;
   font-weight: 750;
   letter-spacing: 0.08em;
 }
-
 .intro,
 .records-list ion-label p,
 .empty-state p {
   color: #475467;
   font-size: 0.88rem;
 }
-
 .intro {
   margin: 4px 0 20px;
 }
-
 ion-searchbar {
   --background: #eaf0f7;
   --border-radius: 12px;
   --box-shadow: none;
-  --color: #111111;
+  --color: #111;
   padding: 0 0 16px;
 }
-
 .records-list {
-  background: #ffffff;
+  background: #fff;
   border: 1px solid #e8edf5;
   border-radius: 18px;
   overflow: hidden;
 }
-
 .records-list ion-item {
-  --background: #ffffff;
+  --background: #fff;
   --padding-end: 12px;
   --padding-start: 12px;
 }
-
-.records-list ion-item.completed {
-  --background: #f8fafc;
-  opacity: 0.62;
-}
-
-.records-list ion-item.completed ion-label h2,
-.records-list ion-item.completed ion-label p {
-  text-decoration: line-through;
-}
-
-.records-list ion-checkbox {
-  --border-color: #98a2b3;
-  --checkbox-background-checked: #155eef;
-  --border-color-checked: #155eef;
-  margin-right: 2px;
-}
-
-.record-icon,
-.empty-icon {
-  align-items: center;
-  background: #e8f0ff;
-  border-radius: 12px;
-  color: #155eef;
-  display: flex;
-  justify-content: center;
-}
-
 .file-icon,
 .image-thumbnail {
   border-radius: 10px;
   height: 44px;
   width: 44px;
 }
-
 .file-icon {
   align-items: center;
   background: #e8f0ff;
@@ -130,70 +85,34 @@ ion-searchbar {
   display: flex;
   justify-content: center;
 }
-
 .file-icon.markdown {
   background: #f3edff;
   color: #6941c6;
 }
-
 .file-icon ion-icon {
   font-size: 1.35rem;
 }
-
 .image-thumbnail {
   border: 1px solid #e8edf5;
   object-fit: cover;
 }
-
-.record-icon {
-  height: 38px;
-  width: 38px;
-}
-
-.record-icon ion-icon {
-  font-size: 1.15rem;
-}
-
-.state,
 .empty-state {
-  color: #667085;
-  justify-content: center;
+  background: #fff;
+  border: 1px dashed #cbd5e1;
+  border-radius: 18px;
   padding: 32px 16px;
   text-align: center;
 }
-
-.state {
-  gap: 8px;
-}
-
-.empty-state {
-  background: #ffffff;
-  border: 1px dashed #cbd5e1;
-  border-radius: 18px;
-}
-
 .empty-state h2 {
   font-size: 1rem;
   margin: 12px 0 4px;
 }
-
-.empty-icon {
-  height: 52px;
-  margin: 0 auto;
-  width: 52px;
-}
-
-.empty-icon ion-icon {
-  font-size: 1.5rem;
-}
-
 .bottom-navigation {
-  background: #ffffff;
+  background: #fff;
   border-top: 1px solid #e8edf5;
   justify-content: space-around;
   min-height: 64px;
 }
-
 .bottom-navigation ion-button {
   --color: #475467;
   --color-activated: #155eef;
@@ -202,30 +121,16 @@ ion-searchbar {
   height: 60px;
   text-transform: none;
 }
-
-.bottom-navigation ion-button::part(native) {
-  align-items: center;
-  flex-direction: column;
-  gap: 4px;
-  justify-content: center;
-  min-width: 76px;
-}
-
 .bottom-navigation ion-button.active {
   --color: #155eef;
 }
-
-.bottom-navigation ion-icon {
-  font-size: 1.25rem;
-}
-
-.bottom-navigation span {
-  line-height: 1;
-}
-
-.bottom-navigation .nav-content {
-  align-items: center;
-  display: flex;
+.nav-content {
   flex-direction: column;
   gap: 4px;
+}
+.nav-content ion-icon {
+  font-size: 1.25rem;
+}
+.nav-content span {
+  line-height: 1;
 }
