@@ -1,0 +1,55 @@
+<ion-header class="ion-no-border"
+  ><ion-toolbar><ion-title>Archivos</ion-title></ion-toolbar></ion-header
+>
+<ion-content
+  ><section class="page-shell">
+    <div class="page-heading">
+      <div>
+        <ion-note>BIBLIOTECA LOCAL</ion-note>
+        <h1>Mis archivos</h1>
+      </div>
+    </div>
+    <ion-searchbar [(ngModel)]="filtro" placeholder="Buscar archivos"></ion-searchbar> @if (!archivosFiltrados.length) {
+    <div class="empty-state">
+      <h2>No hay archivos</h2>
+      <p>Crea un documento, Markdown o importa una imagen.</p>
+      <ion-button (click)="irA('/home')">Crear archivo</ion-button>
+    </div>
+    } @else {
+    <ion-list class="records-list"
+      >@for (archivo of archivosFiltrados; track archivo.id) {
+      <ion-item lines="inset"
+        >@if (archivo.tipo === 'imagen') {
+        <img slot="start" class="image-thumbnail" [src]="archivo.contenido" [alt]="archivo.nombre" />
+        } @else {
+        <div slot="start" class="file-icon" [class.markdown]="archivo.tipo === 'markdown'">
+          <ion-icon [name]="archivo.tipo === 'markdown' ? 'document-text-outline' : 'document-outline'"></ion-icon>
+        </div>
+        }<ion-label
+          ><h2>{{ archivo.nombre }}</h2>
+          <p>{{ archivo.tipo }} · {{ archivo.actualizadoEn | date:'short' }}</p></ion-label
+        ><ion-button slot="end" fill="clear" color="danger" (click)="eliminar(archivo.id)"
+          >Eliminar</ion-button
+        ></ion-item
+      >
+      }</ion-list
+    >
+    }
+  </section></ion-content
+>
+<ion-footer class="ion-no-border"
+  ><ion-toolbar
+    ><nav class="bottom-navigation">
+      <ion-button fill="clear" (click)="irA('/home')"
+        ><span class="nav-content"><ion-icon name="home-outline"></ion-icon><span>Inicio</span></span></ion-button
+      >
+      <ion-button fill="clear" class="active" (click)="irA('/archivos')"
+        ><span class="nav-content"><ion-icon name="grid-outline"></ion-icon><span>Archivos</span></span></ion-button
+      ><ion-button fill="clear" (click)="irA('/cuenta')"
+        ><span class="nav-content"
+          ><ion-icon name="person-circle-outline"></ion-icon><span>Cuenta</span></span
+        ></ion-button
+      >
+    </nav></ion-toolbar
+  ></ion-footer
+>

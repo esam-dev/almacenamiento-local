@@ -1,21 +1,83 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title> Blank </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>
-      Start with Ionic
-      <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a>
-    </p>
-  </div>
+<ion-header class="ion-no-border"
+  ><ion-toolbar
+    ><ion-title>Inicio</ion-title
+    ><ion-button slot="end" fill="clear" aria-label="Actualizar biblioteca" (click)="recargarBiblioteca()"
+      ><ion-icon name="refresh-outline"></ion-icon></ion-button></ion-toolbar
+></ion-header>
+<ion-content>
+  <section class="page-shell">
+    <ion-card class="account-card"
+      ><ion-card-content
+        ><div class="account-summary">
+          <div class="metric-icon storage-icon"><ion-icon name="document-text-outline"></ion-icon></div>
+          <div>
+            <ion-note>ESPACIO LOCAL</ion-note>
+            <h1>Tu biblioteca personal</h1>
+            <p>{{ archivos.length }} archivos guardados en este dispositivo.</p>
+          </div>
+        </div></ion-card-content
+      ></ion-card
+    >
+    <section class="section-block">
+      <div class="section-heading">
+        <div>
+          <ion-note>NUEVO ARCHIVO</ion-note>
+          <h2>Crea o importa</h2>
+        </div>
+        <div class="section-action-icon"><ion-icon name="document-text-outline"></ion-icon></div>
+      </div>
+      <ion-card class="form-card"
+        ><ion-card-content>
+          <ion-item class="input-row" lines="none"
+            ><ion-input
+              [(ngModel)]="nombre"
+              label="Nombre del archivo"
+              labelPlacement="stacked"
+              placeholder="Ej: ideas.md"
+            ></ion-input
+          ></ion-item>
+          <ion-item class="input-row" lines="none"
+            ><ion-select [(ngModel)]="tipo" label="Tipo" labelPlacement="stacked"
+              ><ion-select-option value="texto">Documento de texto</ion-select-option
+              ><ion-select-option value="markdown">Markdown</ion-select-option
+              ><ion-select-option value="imagen">Imagen</ion-select-option></ion-select
+            ></ion-item
+          >
+          @if (tipo === 'imagen') {
+          <ion-item class="input-row" lines="none"
+            ><input type="file" accept="image/*" (change)="cargarImagen($event)"
+          /></ion-item>
+          @if (contenido) { <img class="image-preview" [src]="contenido" alt="Vista previa de imagen" /> } } @else {
+          <ion-textarea
+            [(ngModel)]="contenido"
+            label="Contenido"
+            labelPlacement="stacked"
+            placeholder="Escribe tu contenido aquí..."
+            autoGrow="true"
+          ></ion-textarea>
+          }
+          <div class="form-actions">
+            <ion-button fill="clear" (click)="irA('/archivos')">Ver archivos</ion-button
+            ><ion-button (click)="guardar()"><ion-icon name="save-outline" slot="start"></ion-icon>Guardar</ion-button>
+          </div>
+        </ion-card-content></ion-card
+      >
+    </section>
+  </section>
 </ion-content>
+<ion-footer class="ion-no-border"
+  ><ion-toolbar
+    ><nav class="bottom-navigation">
+      <ion-button fill="clear" class="active" (click)="irA('/home')"
+        ><span class="nav-content"><ion-icon name="home-outline"></ion-icon><span>Inicio</span></span></ion-button
+      >
+      <ion-button fill="clear" (click)="irA('/archivos')"
+        ><span class="nav-content"><ion-icon name="grid-outline"></ion-icon><span>Archivos</span></span></ion-button
+      ><ion-button fill="clear" (click)="irA('/cuenta')"
+        ><span class="nav-content"
+          ><ion-icon name="person-circle-outline"></ion-icon><span>Cuenta</span></span
+        ></ion-button
+      >
+    </nav></ion-toolbar
+  ></ion-footer
+>

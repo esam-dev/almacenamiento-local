@@ -1,15 +1,25 @@
-import { TestBed } from '@angular/core/testing';
-import { Storage } from './storage';
+import { Preferences } from '@capacitor/preferences';
+import { describe, expect, it, vi } from 'vitest';
 
-describe('Storage', () => {
-  let service: Storage;
+import { StorageService } from './storage';
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(Storage);
-  });
+vi.mock('@capacitor/preferences', () => ({
+  Preferences: {
+    get: vi.fn(),
+    keys: vi.fn(),
+  },
+}));
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
+describe('StorageService', () => {
+  it('lists every stored key with its value', async () => {
+    vi.mocked(Preferences.keys).mockResolvedValue({ keys: ['tema', 'usuario'] });
+    vi.mocked(Preferences.get).mockResolvedValueOnce({ value: 'oscuro' }).mockResolvedValueOnce({ value: 'Elias' });
+
+    const service = new StorageService();
+
+    await expect(service.listar()).resolves.toEqual([
+      { clave: 'tema', valor: 'oscuro' },
+      { clave: 'usuario', valor: 'Elias' },
+    ]);
   });
 });
