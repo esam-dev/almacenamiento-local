@@ -1,6 +1,6 @@
 # Almacenamiento Local
 
-Aplicación Ionic y Angular para crear, organizar y consultar archivos locales desde el navegador. La interfaz se inspira en patrones de bibliotecas de archivos: navegación inferior, tarjetas de resumen, lista de archivos y ajustes del dispositivo.
+Aplicación construida con Ionic y Angular para crear, organizar y consultar archivos locales desde el navegador. La interfaz se inspira en patrones de bibliotecas de archivos: navegación inferior, tarjetas de resumen, lista de archivos y ajustes del dispositivo.
 
 ## Funcionalidades
 
@@ -32,10 +32,34 @@ Cada archivo local contiene un identificador, nombre, tipo (`texto`, `markdown` 
 
 ```bash
 npm install
+ionic serve
+```
+
+La aplicación estará disponible en `http://localhost:8100` o en el puerto configurado por Ionic.
+
+También se puede iniciar mediante el script de npm:
+
+```bash
 npm start
 ```
 
-La aplicación estará disponible en `http://localhost:4200` o en el puerto configurado por Angular.
+## Comandos de Ionic y Capacitor
+
+```bash
+# Crear una compilación de producción
+ionic build
+
+# Sincronizar la compilación web con los proyectos nativos configurados
+npx cap sync
+
+# Abrir el proyecto Android
+npx cap open android
+
+# Abrir el proyecto iOS
+npx cap open ios
+```
+
+Los comandos de Capacitor requieren que la plataforma nativa correspondiente esté agregada al proyecto.
 
 ## Validación
 
