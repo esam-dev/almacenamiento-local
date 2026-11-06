@@ -192,3 +192,77 @@ ion-progress-bar {
 .nav-content span {
   line-height: 1;
 }
+
+.photo-actions {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 8px 0;
+}
+.photo-actions ion-button {
+  font-weight: 700;
+  margin: 0;
+  text-transform: none;
+}
+.photo-hint {
+  display: block;
+  font-size: 0.8rem;
+  letter-spacing: 0;
+  margin: 4px 4px 8px;
+}
+.preview-wrapper {
+  margin: 8px 0;
+  position: relative;
+}
+.image-preview {
+  border-radius: 14px;
+  display: block;
+  max-height: 260px;
+  object-fit: cover;
+  width: 100%;
+}
+.remove-image {
+  --background: rgb(255 255 255 / 85%);
+  --border-radius: 50%;
+  --padding-end: 6px;
+  --padding-start: 6px;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+}
+
+.content-field {
+  background: #f8fafc;
+  border: 1px solid #e8edf5;
+  border-radius: 14px;
+  margin: 8px 0;
+  padding: 8px;
+}
+.content-field ion-textarea {
+  --color: #111827;
+}
+.doc-photos {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 10px 0;
+}
+.doc-photo {
+  position: relative;
+}
+.doc-photo img {
+  aspect-ratio: 1;
+  border-radius: 12px;
+  display: block;
+  object-fit: cover;
+  width: 100%;
+}
+.doc-photo ion-button {
+  --padding-end: 2px;
+  --padding-start: 2px;
+  font-size: 1.3rem;
+  margin: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}

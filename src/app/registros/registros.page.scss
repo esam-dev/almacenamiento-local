@@ -14,6 +14,7 @@ ion-title {
 }
 ion-content {
   --background: #f7f9fc;
+  --color: #111827;
 }
 .page-shell {
   margin: 0 auto;
@@ -133,4 +134,63 @@ ion-searchbar {
 }
 .nav-content span {
   line-height: 1;
+}
+
+.item-actions {
+  align-items: center;
+  display: flex;
+}
+.item-actions ion-button {
+  font-weight: 700;
+  margin: 0;
+  text-transform: none;
+}
+.viewer-meta {
+  display: block;
+  letter-spacing: 0;
+  margin-bottom: 12px;
+}
+.viewer-image {
+  border-radius: 14px;
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+.viewer-text {
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: #111827;
+  line-height: 1.5;
+  margin: 12px 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.viewer-image {
+  margin: 12px 0;
+}
+
+.file-icon.documento {
+  background: #e6f6ec;
+  color: #067647;
+}
+/* Visor: colores explícitos para que el texto siempre sea legible (sin depender del tema del sistema) */
+.viewer-card {
+  background: #fff;
+  border: 1px solid #e8edf5;
+  border-radius: 14px;
+  color: #111827;
+  margin: 12px 0;
+  padding: 14px;
+}
+.viewer-body {
+  color: #111827;
+  font-size: 0.98rem;
+  line-height: 1.55;
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.viewer-empty {
+  color: #475467;
+  margin: 16px 0;
 }

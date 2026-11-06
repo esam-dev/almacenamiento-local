@@ -9,7 +9,7 @@
         <h1>Mis archivos</h1>
       </div>
     </div>
-    <ion-searchbar [(ngModel)]="filtro" placeholder="Buscar archivos"></ion-searchbar> @if (!archivosFiltrados.length) {
+    <ion-searchbar [ngModel]="filtro()" (ngModelChange)="filtro.set($event ?? '')" placeholder="Buscar archivos"></ion-searchbar> @if (!archivosFiltrados().length) {
     <div class="empty-state">
       <h2>No hay archivos</h2>
       <p>Crea un documento, Markdown o importa una imagen.</p>
@@ -17,26 +17,64 @@
     </div>
     } @else {
     <ion-list class="records-list"
-      >@for (archivo of archivosFiltrados; track archivo.id) {
+      >@for (archivo of archivosFiltrados(); track archivo.id) {
       <ion-item lines="inset"
         >@if (archivo.tipo === 'imagen') {
         <img slot="start" class="image-thumbnail" [src]="archivo.contenido" [alt]="archivo.nombre" />
         } @else {
-        <div slot="start" class="file-icon" [class.markdown]="archivo.tipo === 'markdown'">
-          <ion-icon [name]="archivo.tipo === 'markdown' ? 'document-text-outline' : 'document-outline'"></ion-icon>
+        <div slot="start" class="file-icon" [class.markdown]="archivo.tipo === 'markdown'" [class.documento]="archivo.tipo === 'documento'">
+          <ion-icon
+            [name]="archivo.tipo === 'documento' ? 'newspaper-outline' : archivo.tipo === 'markdown' ? 'document-text-outline' : 'document-outline'"
+          ></ion-icon>
         </div>
         }<ion-label
           ><h2>{{ archivo.nombre }}</h2>
-          <p>{{ archivo.tipo }} · {{ archivo.actualizadoEn | date:'short' }}</p></ion-label
-        ><ion-button slot="end" fill="clear" color="danger" (click)="eliminar(archivo.id)"
-          >Eliminar</ion-button
-        ></ion-item
+          <p>{{ archivo.tipo }} · {{ archivo.actualizadoEn | date:'short' }}</p>
+          @if (archivo.tipo === 'documento') { <p>{{ resumenDocumento(archivo) }}</p> }</ion-label
+        ><div slot="end" class="item-actions">
+          <ion-button fill="clear" (click)="ver(archivo)"
+            ><ion-icon name="eye-outline" slot="start"></ion-icon>Ver</ion-button
+          >
+          <ion-button fill="clear" color="danger" (click)="eliminar(archivo.id)">Eliminar</ion-button>
+        </div></ion-item
       >
       }</ion-list
     >
     }
   </section></ion-content
 >
+<ion-modal [isOpen]="seleccionado() !== null" (didDismiss)="cerrarVisor()">
+  <ng-template>
+    <ion-header class="ion-no-border">
+      <ion-toolbar>
+        <ion-title>{{ seleccionado()?.nombre }}</ion-title>
+        <ion-button slot="end" fill="clear" aria-label="Cerrar" (click)="cerrarVisor()"
+          ><ion-icon name="close-outline" slot="icon-only"></ion-icon
+        ></ion-button>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      @if (seleccionado(); as archivo) {
+      <ion-note class="viewer-meta">{{ archivo.tipo }} · {{ archivo.actualizadoEn | date: 'medium' }}</ion-note>
+      @if (archivo.tipo === 'imagen') {
+      <img class="viewer-image" [src]="archivo.contenido" [alt]="archivo.nombre" />
+      } @else if (archivo.tipo === 'documento') {
+      @if (archivo.contenido) {
+      <div class="viewer-card"><p class="viewer-body">{{ archivo.contenido }}</p></div>
+      } @for (foto of archivo.imagenes ?? []; track $index) {
+      <img class="viewer-image" [src]="foto" alt="Foto {{ $index + 1 }} del documento" />
+      } @empty { @if (!archivo.contenido) {
+      <p class="viewer-empty">Este documento está vacío.</p>
+      } } } @else {
+      @if (archivo.contenido) {
+      <div class="viewer-card"><p class="viewer-body">{{ archivo.contenido }}</p></div>
+      } @else {
+      <p class="viewer-empty">Este archivo no tiene contenido.</p>
+      } }
+      }
+    </ion-content>
+  </ng-template>
+</ion-modal>
 <ion-footer class="ion-no-border"
   ><ion-toolbar
     ><nav class="bottom-navigation">
