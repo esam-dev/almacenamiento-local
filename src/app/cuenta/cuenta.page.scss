@@ -1,0 +1,157 @@
+ion-toolbar {
+  --background: #fff;
+  --color: #111;
+  --min-height: 60px;
+}
+ion-content {
+  --background: #f7f9fc;
+}
+.page-shell {
+  margin: 0 auto;
+  max-width: 720px;
+  padding: 18px;
+}
+ion-note {
+  color: #667085;
+  font-size: 0.65rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+}
+.plan-card,
+.metric-card {
+  --background: #fff;
+  border: 1px solid #e8edf5;
+  box-shadow: none;
+}
+.plan-card {
+  border-radius: 16px;
+  margin: 0 0 14px;
+}
+.plan-row,
+.metrics-grid,
+.bottom-navigation {
+  align-items: center;
+  display: flex;
+}
+.plan-row {
+  gap: 12px;
+}
+ion-avatar,
+.metric-icon,
+.setting-icon {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+ion-avatar {
+  background: #e8f0ff;
+  color: #155eef;
+}
+ion-avatar ion-icon {
+  font-size: 1.2rem;
+}
+.plan-row h1,
+.metric-card strong,
+.settings-list h2 {
+  color: #111;
+  font-weight: 800;
+}
+.plan-row h1 {
+  font-size: 1rem;
+  margin: 3px 0;
+}
+.plan-row p,
+.metric-card p,
+.settings-list p {
+  color: #475467;
+  font-size: 0.78rem;
+  margin: 0;
+}
+.chevron {
+  color: #98a2b3;
+  margin-left: auto;
+}
+.metrics-grid {
+  gap: 12px;
+  margin-bottom: 28px;
+}
+.metric-card {
+  border-radius: 16px;
+  flex: 1;
+  margin: 0;
+}
+.metric-card ion-card-content {
+  padding: 14px;
+}
+.metric-card strong {
+  display: block;
+  font-size: 1.25rem;
+  margin: 6px 0 2px;
+}
+.metric-icon,
+.setting-icon {
+  border-radius: 10px;
+  height: 34px;
+  margin-bottom: 10px;
+  width: 34px;
+}
+.metric-icon.storage {
+  background: #e8f0ff;
+  color: #155eef;
+}
+.metric-icon.devices {
+  background: #eaf8f0;
+  color: #14804a;
+}
+.setting-icon {
+  background: #f2f4f7;
+  color: #344054;
+  margin: 0 12px 0 0;
+}
+.section-label {
+  display: block;
+  margin: 0 0 8px 4px;
+}
+.settings-list {
+  background: #fff;
+  border: 1px solid #e8edf5;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.settings-list ion-item {
+  --background: #fff;
+  --padding-start: 14px;
+  --padding-end: 10px;
+}
+.settings-list h2 {
+  font-size: 0.9rem;
+}
+.bottom-navigation {
+  background: #fff;
+  border-top: 1px solid #e8edf5;
+  justify-content: space-around;
+  min-height: 64px;
+}
+.bottom-navigation ion-button {
+  --color: #475467;
+  --color-activated: #155eef;
+  font-size: 0.7rem;
+  font-weight: 700;
+  height: 60px;
+  text-transform: none;
+}
+.bottom-navigation ion-button.active {
+  --color: #155eef;
+}
+.nav-content {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.nav-content ion-icon {
+  font-size: 1.25rem;
+}
+.nav-content span {
+  line-height: 1;
+}

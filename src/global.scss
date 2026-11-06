@@ -34,4 +34,6 @@
 
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import '@ionic/angular/css/palettes/dark.system.css';
+/* Desactivado: las pantallas usan fondos claros fijos y, con el modo oscuro del sistema,
+   el texto quedaba blanco sobre fondo blanco (invisible). */
+/* @import '@ionic/angular/css/palettes/dark.system.css'; */
