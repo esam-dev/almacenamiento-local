@@ -1,0 +1,196 @@
+:host {
+  --page-padding: 20px;
+}
+ion-toolbar {
+  --background: #fff;
+  --color: #111;
+  --min-height: 64px;
+  padding: 0 8px;
+}
+ion-title {
+  color: #111;
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+ion-content {
+  --background: #f7f9fc;
+  --color: #111827;
+}
+.page-shell {
+  margin: 0 auto;
+  max-width: 720px;
+  padding: 16px var(--page-padding) 28px;
+}
+.page-heading,
+.bottom-navigation,
+.nav-content {
+  align-items: center;
+  display: flex;
+}
+.page-heading {
+  justify-content: space-between;
+}
+.page-heading h1,
+.records-list ion-label h2,
+.empty-state h2 {
+  color: #111;
+  font-weight: 800;
+}
+.page-heading h1 {
+  font-size: 1.35rem;
+  margin: 4px 0;
+}
+ion-note {
+  color: #667085;
+  font-size: 0.67rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+}
+.intro,
+.records-list ion-label p,
+.empty-state p {
+  color: #475467;
+  font-size: 0.88rem;
+}
+.intro {
+  margin: 4px 0 20px;
+}
+ion-searchbar {
+  --background: #eaf0f7;
+  --border-radius: 12px;
+  --box-shadow: none;
+  --color: #111;
+  padding: 0 0 16px;
+}
+.records-list {
+  background: #fff;
+  border: 1px solid #e8edf5;
+  border-radius: 18px;
+  overflow: hidden;
+}
+.records-list ion-item {
+  --background: #fff;
+  --padding-end: 12px;
+  --padding-start: 12px;
+}
+.file-icon,
+.image-thumbnail {
+  border-radius: 10px;
+  height: 44px;
+  width: 44px;
+}
+.file-icon {
+  align-items: center;
+  background: #e8f0ff;
+  color: #155eef;
+  display: flex;
+  justify-content: center;
+}
+.file-icon.markdown {
+  background: #f3edff;
+  color: #6941c6;
+}
+.file-icon ion-icon {
+  font-size: 1.35rem;
+}
+.image-thumbnail {
+  border: 1px solid #e8edf5;
+  object-fit: cover;
+}
+.empty-state {
+  background: #fff;
+  border: 1px dashed #cbd5e1;
+  border-radius: 18px;
+  padding: 32px 16px;
+  text-align: center;
+}
+.empty-state h2 {
+  font-size: 1rem;
+  margin: 12px 0 4px;
+}
+.bottom-navigation {
+  background: #fff;
+  border-top: 1px solid #e8edf5;
+  justify-content: space-around;
+  min-height: 64px;
+}
+.bottom-navigation ion-button {
+  --color: #475467;
+  --color-activated: #155eef;
+  font-size: 0.7rem;
+  font-weight: 700;
+  height: 60px;
+  text-transform: none;
+}
+.bottom-navigation ion-button.active {
+  --color: #155eef;
+}
+.nav-content {
+  flex-direction: column;
+  gap: 4px;
+}
+.nav-content ion-icon {
+  font-size: 1.25rem;
+}
+.nav-content span {
+  line-height: 1;
+}
+
+.item-actions {
+  align-items: center;
+  display: flex;
+}
+.item-actions ion-button {
+  font-weight: 700;
+  margin: 0;
+  text-transform: none;
+}
+.viewer-meta {
+  display: block;
+  letter-spacing: 0;
+  margin-bottom: 12px;
+}
+.viewer-image {
+  border-radius: 14px;
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+.viewer-text {
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: #111827;
+  line-height: 1.5;
+  margin: 12px 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.viewer-image {
+  margin: 12px 0;
+}
+
+.file-icon.documento {
+  background: #e6f6ec;
+  color: #067647;
+}
+/* Visor: colores explícitos para que el texto siempre sea legible (sin depender del tema del sistema) */
+.viewer-card {
+  background: #fff;
+  border: 1px solid #e8edf5;
+  border-radius: 14px;
+  color: #111827;
+  margin: 12px 0;
+  padding: 14px;
+}
+.viewer-body {
+  color: #111827;
+  font-size: 0.98rem;
+  line-height: 1.55;
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.viewer-empty {
+  color: #475467;
+  margin: 16px 0;
+}
